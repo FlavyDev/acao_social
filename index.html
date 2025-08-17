@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <title>Ação Social</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-   <!-- Logo -->
+  <!-- Logo -->
   <header>
     <img src="imagens/logo.png" alt="Logo da Ação Social" class="logo">
-    <h1>Iniciativa comunitária</h1>
+    <h1>Apoie a nossa causa!</h1>
   </header>
 
+  <!-- Voluntário -->
   <div class="card">
     <h2>🤝 Inscreva-se como voluntário</h2>
     <a href="https://forms.gle/seu-formulario-aqui" target="_blank">
@@ -20,6 +21,7 @@
     </a>
   </div>
 
+  <!-- Doação -->
   <div class="card">
     <h2 id=>💰 Faça uma doação via PIX</h2>
     <h5 id=>adicione 01 centavo para identificarmos sua doação ex: R$30,01</h5>
@@ -27,12 +29,36 @@
     <button onclick="copiarPix()">Copiar chave PIX</button>
   </div>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span class="fechar">&times;</span>
+      <p>✅ Chave PIX copiada com sucesso!</p>
+    </div>
+  </div>
+
   <script>
     function copiarPix() {
       const texto = document.getElementById("pix").innerText;
       navigator.clipboard.writeText(texto)
-        .then(() => alert("Chave PIX copiada com sucesso!"))
+        .then(() => {
+          const modal = document.getElementById("modal");
+          modal.style.display = "block";
+        })
         .catch(err => alert("Erro ao copiar: " + err));
+    }
+
+    // Fechar modal ao clicar no X
+    document.querySelector(".fechar").onclick = function() {
+      document.getElementById("modal").style.display = "none";
+    }
+
+    // Fechar modal ao clicar fora dela
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
     }
   </script>
 
