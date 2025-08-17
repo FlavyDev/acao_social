@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"> 
+  <title>Ação Social</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <!-- Logo -->
+  <header>
+    <img src="imagens/logo.png" alt="Logo da Ação Social" class="logo">
+    <h1>Iniciativa comunitária</h1>
+  </header>
+
+  <div class="card">
+    <h2>🤝 Inscreva-se como voluntário</h2>
+    <a href="https://forms.gle/seu-formulario-aqui" target="_blank">
+      <button class="botao-link">Ir para o formulário</button>
+    </a>
+  </div>
+
+  <div class="card">
+    <h2 id=>💰 Faça uma doação via PIX</h2>
+    <h5 id=>adicione 01 centavo para identificarmos sua doação ex: R$30,01</h5>
+    <div id="pix">chavepix@email.com</div>
+    <button onclick="copiarPix()">Copiar chave PIX</button>
+  </div>
+
+  <script>
+    function copiarPix() {
+      const texto = document.getElementById("pix").innerText;
+      navigator.clipboard.writeText(texto)
+        .then(() => alert("Chave PIX copiada com sucesso!"))
+        .catch(err => alert("Erro ao copiar: " + err));
+    }
+  </script>
+
+</body>
+</html>
