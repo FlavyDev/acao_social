@@ -1,9 +1,10 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  padding: 50px;
+  padding: 30px;
   background-color: #dccbb5;
   color: #360000;
+  margin: 0;
 }
 
 header {
@@ -11,13 +12,14 @@ header {
 }
 
 .logo {
-  width: 120px;
+  width: 140px;
   height: auto;
   margin-bottom: 15px;
 }
 
 h1 {
   margin-bottom: 40px;
+  font-size: 28px;
 }
 
 .card {
@@ -26,22 +28,23 @@ h1 {
   border-radius: 10px;
   padding: 30px;
   margin: 20px auto;
-  max-width: 400px;
+  width: 90%;        /* ocupa quase tudo em telas pequenas */
+  max-width: 400px;  /* mas limita no desktop */
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 #pix {
   font-size: 16px;
   margin-bottom: 15px;
-  padding: 10px;
+  padding: 12px;
   background-color: #eee;
   border-radius: 5px;
   word-break: break-all;
 }
 
 button {
-  padding: 10px 20px;
-  font-size: 15px;
+  padding: 12px 22px;
+  font-size: 16px;
   cursor: pointer;
   background-color: #4CAF50;
   color: white;
@@ -64,38 +67,51 @@ button:hover {
 
 /* ---------- MODAL ---------- */
 .modal {
-  display: none; /* escondida por padrão */
+  display: none;
   position: fixed;
   z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.5); /* fundo escuro */
+  background-color: rgba(0,0,0,0.5);
+  padding: 20px;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
   background-color: #fff;
-  margin: 15% auto;
-  padding: 20px;
-  border-radius: 10px;
-  width: 300px;
+  padding: 25px 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   animation: fadeIn 0.3s;
 }
 
 .modal-content p {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: #4CAF50;
+  margin: 15px 0;
+}
+
+.modal-content button {
+  margin-top: 10px;
+  background-color: #007BFF;
+}
+
+.modal-content button:hover {
+  background-color: #0056b3;
 }
 
 .fechar {
-  color: #aaa;
+  color: #888;
   float: right;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   cursor: pointer;
 }
@@ -105,7 +121,37 @@ button:hover {
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
 }
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (max-width: 600px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .logo {
+    width: 100px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  button {
+    font-size: 18px;
+    padding: 14px 24px;
+    width: 100%; /* botões ocupam toda a largura no celular */
+  }
+
+  #pix {
+    font-size: 18px;
+  }
+}
+
 
